@@ -4,7 +4,7 @@ let wins = 0;
 let losses = 0;
 let compChoice;
 let playerChoice;
-playerChoice  = prompt('Rock-Paper-Scissors', 'Rock');
+playerChoice = prompt('Rock-Paper-Scissors', 'Rock');
 
 function computerPlay () {
   const rng = Math.floor(Math.random() * rpsArray.length);
@@ -29,6 +29,12 @@ function rpsRound () {
     result = 'le error'
   }
   return result
+}
+
+switch (x) {
+  case ('blah'):
+  case ('bleh'):
+    console.log(lol)
 }
 
 
