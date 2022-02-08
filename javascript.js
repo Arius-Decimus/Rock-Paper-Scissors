@@ -7,35 +7,6 @@ let playerChoiceRaw;
 let playerChoice;
 let i = 0;
 
-/* function computerPlay () {
-  const rng = Math.floor(Math.random() * rpsArray.length);
-  compChoice = (rng, rpsArray[rng]);
-  return ('The computer chooses: ' + compChoice);
-} */
-
-/* function rpsRound () {
-  if (compChoice == 'scissors' && playerChoice == 'rock' ||
-  compChoice == 'rock' && playerChoice == 'paper' ||
-  compChoice == 'paper' && playerChoice == 'scissors') {
-    result = 'You win';
-    wins++;
-  } else if (compChoice == 'scissors' && playerChoice == 'paper' ||
-  compChoice == 'rock' && playerChoice == 'scissors' ||
-  compChoice == 'paper' && playerChoice == 'rock') {
-    result = 'You lose';
-    losses++;
-  } else if (compChoice == 'scissors' && playerChoice == 'scissors' ||
-  compChoice == 'rock' && playerChoice == 'rock' ||
-  compChoice == 'paper' && playerChoice == 'paper') {
-    result = 'You tie';
-    wins++;
-    losses++;
-  } else {
-    result = 'le error'
-  }
-  return result + '. ' + 'Your wins: ' + wins + ' Your losses: ' + losses
-} */
-
 while (wins < 5 || losses < 5 || i < 10) {
 
   function input() {
@@ -96,17 +67,3 @@ while (wins < 5 || losses < 5 || i < 10) {
     break;
 }
 }
-
-/* function game () {
-  if (result == 'You win') {
-    wins++;
-  } else if (result = 'You lose') {
-    losses++;
-  } else if (result = 'You tie') {
-    wins ++;
-    losses ++;
-  } else {
-    console.log ('Error in game function');
-  }
-  return 'Your wins: ' + wins + ' Your losses: ' + losses;
-} */
