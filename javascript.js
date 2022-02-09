@@ -1,20 +1,18 @@
-const rpsArray = ['rock', 'paper', 'scissors'];
-let result;
 let wins = 0;
 let losses = 0;
-let compChoice;
-let playerChoiceRaw;
-let playerChoice;
 let i = 0;
 
 while (wins < 5 || losses < 5 || i < 10) {
 
-  function input() {
+  const rpsArray = ['rock', 'paper', 'scissors'];
+  let result;
+  let compChoice;
+  let playerChoiceRaw;
+  let playerChoice;
+  let rng = Math.floor(Math.random() * rpsArray.length)
   playerChoiceRaw = prompt('Rock-Paper-Scissors', 'Rock');
   playerChoice = playerChoiceRaw.toLowerCase();
-  let rng = Math.floor(Math.random() * rpsArray.length);
   compChoice = (rng, rpsArray[rng]);
-  }
 
   if (compChoice == 'scissors' && playerChoice == 'rock' ||
   compChoice == 'rock' && playerChoice == 'paper' ||
@@ -38,18 +36,17 @@ while (wins < 5 || losses < 5 || i < 10) {
     losses++;
     i++;
     compChoice = (rng, rpsArray[rng])
-    if (wins == 5 || losses == 5) {
-    }
   } else {
     result = 'le error';
     i++;
     compChoice = (rng, rpsArray[rng])
   }
 
-  console.log('Computer chose: ' + compChoice + '. Player chose: ' + playerChoice + '. ' +
-  result + '. ' + 'Your wins: ' + wins + ' Your losses: ' + losses);
+  console.log('Computer chose: ' + compChoice + '. Player chose: ' + 
+  playerChoice + '. ' + result + '. ' + 'Your wins: ' + wins + 
+  ' Your losses: ' + losses);
 
-  if (wins == 5) {
+  if (wins == 5 ) {
     let finalOutcome = 'You win! Good day sir!';
     console.log(finalOutcome);
     break;
