@@ -2,6 +2,7 @@ let wins = 0;
 let losses = 0;
 let i = 0;
 
+function rockPaperScissors() {
 while (wins < 5 || losses < 5 || i < 10) {
 
   const rpsArray = ['rock', 'paper', 'scissors'];
@@ -62,5 +63,6 @@ while (wins < 5 || losses < 5 || i < 10) {
   let finalOutcome = 'Exceeded maximum number of attempts! Good day sir!';
     console.log (finalOutcome);
     break;
+}
 }
 }
