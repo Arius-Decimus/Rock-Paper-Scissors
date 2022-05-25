@@ -1,14 +1,3 @@
-/*
-Pseudo-Code RPS 2.0 best of 5
-
-Create a function called Rock Paper Scissors.
-
-For as long as player has not won 3 games, lost 3 games, or played more than 5 games
-
-*/
-
-
-
 //1: Storage (array, definitions, input conversion)
 
   let rpsArray = ["rock", "paper", "scissors"];
@@ -70,3 +59,5 @@ function rpsGame (){
   }
   }
 }
+
+const body = document.body;
