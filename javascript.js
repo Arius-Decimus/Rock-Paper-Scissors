@@ -37,24 +37,40 @@ function playRound () {
     playerChoice == 'paper' && computerChoice == 'rock' ||
     playerChoice == 'scissors' && computerChoice == 'paper') {
       result = 'win';
+      wins++;
       console.log(result);
     } else if (playerChoice == 'rock' && computerChoice == 'paper' ||
     playerChoice == 'paper' && computerChoice == 'scissors' ||
     playerChoice == 'scissors' && computerChoice == 'rock') {
       result = 'loss';
       console.log(result);
+      losses ++;
     } else if (playerChoice == 'rock' && computerChoice == 'rock' ||
     playerChoice == 'paper' && computerChoice == 'paper' ||
     playerChoice == 'scissors' && computerChoice == 'scissors') {
       result = 'tie';
+      wins++;
+      losses++;
       console.log(result);
     }
   }
 
   function addResult () {
-    let text = result;
-    resultP1.innerText = result;
+    if (wins < 5 && losses < 5) {
+    resultP1.innerText = result + ' ' + wins + ' ' + losses;
     div.append(resultP1);
+    } else if (wins == 5) {
+      resultP1.innerText = 'You win, congratulations!';
+      wins = 0;
+      losses = 0;
+      div.append(resultP1);
+    } else if (losses == 5) {
+      resultP1.innerText = 'You lose, loser!';
+      div.append(resultP1);
+    } else if (wins == 5 && losses ==5) {
+      resultP1.innerText = 'you tie, tier! ):';
+      div.append(resultP1);
+    }
   }
 
 //4: Events
