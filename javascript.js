@@ -1,68 +1,66 @@
+//1: Storage (array, definitions, input conversion)
+
+let rpsArray = ["rock", "paper", "scissors"];
 let wins = 0;
 let losses = 0;
-let i = 0;
+let play = 0;
+let playerChoice;
+let result;
+const body = document.body;
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+const playBtn = document.querySelector('#play');
+const resultsDiv = document.createElement('div');
+resultsDiv.setAttribute('id','results')
+body.append(resultsDiv);
+resultP1 = document.createElement('p'); 
 
-function rockPaperScissors() {
-while (wins < 5 || losses < 5 || i < 10) {
+const div = document.querySelector('div');
 
-  const rpsArray = ['rock', 'paper', 'scissors'];
-  let result;
-  let compChoice;
-  let playerChoiceRaw;
-  let playerChoice;
-  let rng = Math.floor(Math.random() * rpsArray.length)
-  playerChoiceRaw = prompt('Rock-Paper-Scissors', 'Rock');
-  playerChoice = playerChoiceRaw.toLowerCase();
-  compChoice = (rng, rpsArray[rng]);
+function rps () {
+  playRound();
+  addResult();
+}
 
-  if (compChoice == 'scissors' && playerChoice == 'rock' ||
-  compChoice == 'rock' && playerChoice == 'paper' ||
-  compChoice == 'paper' && playerChoice == 'scissors') {
-    result = 'You win';
-    wins++;
-    i++;
-    compChoice = (rng, rpsArray[rng])
-  } else if (compChoice == 'scissors' && playerChoice == 'paper' ||
-  compChoice == 'rock' && playerChoice == 'scissors' ||
-  compChoice == 'paper' && playerChoice == 'rock') {
-    result = 'You lose';
-    losses++;
-    i++;
-    compChoice = (rng, rpsArray[rng])
-  } else if (compChoice == 'scissors' && playerChoice == 'scissors' ||
-  compChoice == 'rock' && playerChoice == 'rock' ||
-  compChoice == 'paper' && playerChoice == 'paper') {
-    result = 'You tie';
-    wins++;
-    losses++;
-    i++;
-    compChoice = (rng, rpsArray[rng])
-  } else {
-    result = 'le error';
-    i++;
-    compChoice = (rng, rpsArray[rng])
+function rpsButton () {
+  playerChoice = this.id;
+  console.log(playerChoice);
+}
+
+function playRound () {
+  let rng = rpsArray[Math.floor(Math.random() * rpsArray.length)];
+  let computerChoice = rng;
+  console.log('Computer Chose: ' + computerChoice);
+  console.log('Player Chose: ' + playerChoice);
+  if (playerChoice == 'rock' && computerChoice == 'scissors' ||
+    playerChoice == 'paper' && computerChoice == 'rock' ||
+    playerChoice == 'scissors' && computerChoice == 'paper') {
+      result = 'win';
+      console.log(result);
+    } else if (playerChoice == 'rock' && computerChoice == 'paper' ||
+    playerChoice == 'paper' && computerChoice == 'scissors' ||
+    playerChoice == 'scissors' && computerChoice == 'rock') {
+      result = 'loss';
+      console.log(result);
+    } else if (playerChoice == 'rock' && computerChoice == 'rock' ||
+    playerChoice == 'paper' && computerChoice == 'paper' ||
+    playerChoice == 'scissors' && computerChoice == 'scissors') {
+      result = 'tie';
+      console.log(result);
+    }
   }
 
-  console.log('Computer chose: ' + compChoice + '. Player chose: ' + 
-  playerChoice + '. ' + result + '. ' + 'Your wins: ' + wins + 
-  ' Your losses: ' + losses);
+  function addResult () {
+    let text = result;
+    resultP1.innerText = result;
+    div.append(resultP1);
+  }
 
-  if (wins == 5 ) {
-    let finalOutcome = 'You win! Good day sir!';
-    console.log(finalOutcome);
-    break;
-  } else if (losses == 5) {
-    let finalOutcome = 'You lose! Good day sir!';
-    console.log(finalOutcome);
-    break;
-  } else if (wins == 5 && losses == 5) {
-    finalOutcome = 'You tie! Good day sir!';
-    console.log(finalOutcome);
-    break;
-  } else if (i == 10) {
-  let finalOutcome = 'Exceeded maximum number of attempts! Good day sir!';
-    console.log (finalOutcome);
-    break;
-}
-}
-}
+//4: Events
+
+
+rockBtn.addEventListener ('click', rpsButton);
+paperBtn.addEventListener ('click', rpsButton);
+scissorsBtn.addEventListener ('click', rpsButton);
+playBtn.addEventListener ('click', rps);
