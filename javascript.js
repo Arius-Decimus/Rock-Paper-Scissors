@@ -1,5 +1,3 @@
-//1: Storage (array, definitions, input conversion)
-
 let rpsArray = ["rock", "paper", "scissors"];
 let wins = 0;
 let losses = 0;
@@ -15,13 +13,11 @@ const resultsDiv = document.createElement('div');
 resultsDiv.setAttribute('id','results')
 body.append(resultsDiv);
 resultP1 = document.createElement('p'); 
-
 const div = document.querySelector('div');
-
-function rps () {
-  playRound();
-  addResult();
-}
+rockBtn.addEventListener ('click', rpsButton);
+paperBtn.addEventListener ('click', rpsButton);
+scissorsBtn.addEventListener ('click', rpsButton);
+playBtn.addEventListener ('click', rps);
 
 function rpsButton () {
   playerChoice = this.id;
@@ -59,24 +55,25 @@ function playRound () {
     if (wins < 5 && losses < 5) {
     resultP1.innerText = result + ' ' + wins + ' ' + losses;
     div.append(resultP1);
-    } else if (wins == 5) {
+    } else if (wins == 5 && losses !== 5) {
       resultP1.innerText = 'You win, congratulations!';
       wins = 0;
       losses = 0;
       div.append(resultP1);
-    } else if (losses == 5) {
+    } else if (losses == 5 && wins !== 5) {
       resultP1.innerText = 'You lose, loser!';
+      wins = 0;
+      losses = 0;
       div.append(resultP1);
     } else if (wins == 5 && losses ==5) {
-      resultP1.innerText = 'you tie, tier! ):';
+      resultP1.innerText = 'You tie, tier! ):';
+      wins = 0;
+      losses = 0;
       div.append(resultP1);
     }
   }
 
-//4: Events
-
-
-rockBtn.addEventListener ('click', rpsButton);
-paperBtn.addEventListener ('click', rpsButton);
-scissorsBtn.addEventListener ('click', rpsButton);
-playBtn.addEventListener ('click', rps);
+  function rps () {
+    playRound();
+    addResult();
+  }
